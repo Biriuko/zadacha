@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void main()
+{
+	
+	int number;
+
+	do{
+		cout << "Enter a four-digit or five-digit number:";
+		cin >> number;
+	}while(number < 1000 || number > 99999);
+
+	unsigned int sum = 0;
+	int number_copy = number;
+	int counter = 1;
+	while(number_copy){
+		//4
+		if(counter % 2 == 0 && number < 10000) 
+			sum+= number_copy%10;
+		//5
+		else if(counter % 2 && number > 9999) 
+			sum+= number_copy%10;
+		number_copy /= 10;
+		counter++;
+	}
+
+	if(number < 10000) cout << "The number "<< number <<" is four-digit and sum is " << sum << endl;
+	else  cout << "The number "<< number <<" is five-digit and sum is " << sum << endl;
+}
